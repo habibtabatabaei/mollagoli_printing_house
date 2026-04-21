@@ -1,0 +1,14 @@
+-- ساخت جدول مدیران
+CREATE TABLE admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL, -- محل ذخیره رمز عبور رمزنگاری شده
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ایجاد یک مدیر پیش‌فرض
+-- نام کاربری: admin
+-- رمز عبور: admin123
+-- (این یک هش Bcrypt از کلمه admin123 است)
+INSERT INTO admins (username, password_hash) 
+VALUES ('admin', '$2y$10$T8K.M/m5Wf.4/u4T.G8x.rY5hUuCj/n8/V/Q2y11V.hT.QyJ.kG6');

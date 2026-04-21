@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # اگر درخواست کاربر یک فایل واقعی (مثل عکس یا CSS) نبود
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # همه چیز را به index.php بفرست
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
